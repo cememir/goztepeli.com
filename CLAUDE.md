@@ -3,6 +3,7 @@
 ## Proje Özeti
 
 Göztepe Spor Kulübü fan sitesi. Pure HTML/CSS/Vanilla JS. Sunucu gerektirmez, GitHub Pages'de çalışır.
+Aynı zamanda 185.130.57.42 adresindeki VPS sunucusuna da deploy edilmiştir.
 
 ## Dizin Yapısı
 
@@ -10,7 +11,6 @@ Göztepe Spor Kulübü fan sitesi. Pure HTML/CSS/Vanilla JS. Sunucu gerektirmez,
 goztepeli.com/
 ├── index.html          # Ana sayfa — Süper Lig puan durumu
 ├── marslar.html        # Marşlar ve sözler
-├── videolar.html       # YouTube embed videoları
 ├── tarihce.html        # Göztepe tarihçesi (timeline formatında)
 ├── css/style.css       # Tüm stiller — BU DOSYAYI DEĞİŞTİR
 ├── js/main.js          # Ortak JS (nav, hamburger, scroll)
@@ -32,9 +32,9 @@ Her zaman `css/style.css`'teki CSS custom properties kullanın. Inline renk kull
 ## API Bilgisi
 
 - **Servis:** API-Football (RapidAPI)
-- **Endpoint:** `https://api-football-v1.p.rapidapi.com/v3/standings?league=203&season=2024`
+- **Endpoint:** `https://api-football-v1.p.rapidapi.com/v3/standings?league=203&season=2025`
 - **League ID:** 203 (Trendyol Süper Lig)
-- **Season:** 2024 (2024-25 sezonu)
+- **Season:** 2025 (2025-26 sezonu)
 - **Key dosyası:** `js/config.js` → `API_CONFIG.RAPIDAPI_KEY`
 - **Cache:** localStorage, 1 saatlik TTL (`CACHE_KEY = 'goztep_standings'`)
 
@@ -43,8 +43,10 @@ Her zaman `css/style.css`'teki CSS custom properties kullanın. Inline renk kull
 1. **`js/config.js` asla commit edilmez** — .gitignore'da
 2. Site, `config.js` olmadan da çalışmalıdır (static fallback)
 3. Tüm dış linkler `target="_blank" rel="noopener noreferrer"` ile açılmalı
-4. Yeni sayfa eklenirken tüm `<nav>` elementleri güncellenmeli (4 HTML dosyası)
-5. Resmi Göztepe sitesi: `https://www.goztepespor.org/`
+4. Yeni sayfa eklenirken tüm `<nav>` elementleri güncellenmeli (3 HTML dosyası)
+5. Resmi Göztepe sitesi: `https://www.goztepe.org.tr/`
+6. Co-Authored-By kullanma.
+7. wikipedia linki https://tr.wikipedia.org/wiki/G%C3%B6ztepe_(futbol_tak%C4%B1m%C4%B1)
 
 ## Yeni Sayfa Eklerken
 
@@ -64,3 +66,28 @@ Her zaman `css/style.css`'teki CSS custom properties kullanın. Inline renk kull
 - Branch: `main`, Folder: `/ (root)`
 - `index.html` otomatik serve edilir
 - Push sonrası 1-2 dakika içinde güncellenir
+
+## VPS Sunucu Deployment (Windows)
+
+- **Sunucu:** 185.130.57.42 (root)
+- **Web dizini:** `/var/www/html/goztepelicom/`
+- **Web sunucusu:** nginx
+- **SSH anahtarı:** `~/.ssh/goztepeli_deploy` (OpenSSH ed25519, gitignore'da)
+- **PuTTY:** `C:\Program Files\PuTTY\` — plink.exe ve pscp.exe kullanılır
+
+### Deployment Adımları (Windows/PuTTY)
+
+```bash
+# 1. Yedeği al
+plink -i ~/.ssh/goztepeli_deploy root@185.130.57.42 "cp -r /var/www/html/goztepelicom /var/www/html/goztepelicom_backup_$(date +%Y%m%d)"
+
+# 2. Dosyaları kopyala (pscp ile)
+pscp -i ~/.ssh/goztepeli_deploy -r C:\Users\cemem\PycharmProjects\goztepeli.com\*.html root@185.130.57.42:/var/www/html/goztepelicom/
+pscp -i ~/.ssh/goztepeli_deploy -r C:\Users\cemem\PycharmProjects\goztepeli.com\css root@185.130.57.42:/var/www/html/goztepelicom/
+pscp -i ~/.ssh/goztepeli_deploy -r C:\Users\cemem\PycharmProjects\goztepeli.com\js root@185.130.57.42:/var/www/html/goztepelicom/
+
+# 3. nginx'i yeniden başlat
+plink -i ~/.ssh/goztepeli_deploy root@185.130.57.42 "systemctl restart nginx"
+```
+
+> **Not:** SSH anahtarı commit edilmez. Public key sunucunun `~/.ssh/authorized_keys` dosyasında olmalıdır.

@@ -11,7 +11,6 @@ GitHub Pages üzerinde ücretsiz olarak yayınlanmaktadır.
 |-------|-------|--------|
 | Ana Sayfa | `index.html` | Trendyol Süper Lig puan durumu tablosu |
 | Marşlar | `marslar.html` | Göztepe marşları ve söz kitabı |
-| Videolar | `videolar.html` | YouTube maç özetleri ve tribün videoları |
 | Tarihçe | `tarihce.html` | 1925'ten günümüze Göztepe'nin hikayesi |
 
 ---
@@ -20,7 +19,7 @@ GitHub Pages üzerinde ücretsiz olarak yayınlanmaktadır.
 
 ```bash
 # 1. Repoyu klonla
-git clone https://github.com/KULLANICI_ADI/goztepeli.com.git
+git clone https://github.com/cememir/goztepeli.com.git
 cd goztepeli.com
 
 # 2. (Opsiyonel) API key dosyasını oluştur
@@ -49,7 +48,7 @@ Canlı Trendyol Süper Lig verisi için **ücretsiz** bir RapidAPI hesabı yeter
 
 > **Not:** `js/config.js` `.gitignore`'dadır — asla commit etmeyin!
 >
-> API key olmadan site yine çalışır, 2024–25 sezonu statik verisi gösterilir.
+> API key olmadan site yine çalışır, 2025–26 sezonu statik verisi gösterilir.
 
 ---
 
@@ -59,7 +58,7 @@ Canlı Trendyol Süper Lig verisi için **ücretsiz** bir RapidAPI hesabı yeter
 2. **Branch:** `main`, **Folder:** `/ (root)` seçin
 3. **Save** tıklayın
 4. Birkaç dakika sonra siteniz şu adreste yayında:
-   `https://KULLANICI_ADI.github.io/goztepeli.com/`
+   `https://cememir.github.io/goztepeli.com/`
 
 ---
 
@@ -69,7 +68,6 @@ Canlı Trendyol Süper Lig verisi için **ücretsiz** bir RapidAPI hesabı yeter
 goztepeli.com/
 ├── index.html              # Ana sayfa — Puan durumu
 ├── marslar.html            # Marşlar sayfası
-├── videolar.html           # YouTube videoları
 ├── tarihce.html            # Göztepe tarihçesi
 ├── css/
 │   └── style.css           # Tüm stiller
@@ -78,7 +76,6 @@ goztepeli.com/
 │   ├── standings.js        # Puan durumu mantığı (API + cache + fallback)
 │   ├── config.js           # API key — GİTİGNORE'DA (elle oluşturulur)
 │   └── config.js.example   # Örnek config dosyası
-├── images/                 # Görseller
 ├── README.md
 ├── SKILLS.md
 └── CLAUDE.md
@@ -91,7 +88,6 @@ goztepeli.com/
 - **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6+)
 - **Hosting:** GitHub Pages
 - **Puan Durumu API:** API-Football via RapidAPI (opsiyonel)
-- **Videolar:** YouTube Embed API
 - **İkonlar:** Font Awesome 6
 
 ---
@@ -99,7 +95,7 @@ goztepeli.com/
 ## Resmi Bağlantılar
 
 - **Göztepe Spor Kulübü:** [goztepe.org.tr](https://www.goztepe.org.tr/)
-- **Wikipedia:** [Göztepe S.K.](https://tr.wikipedia.org/wiki/G%C3%B6ztepe_S.K.)
+- **Wikipedia:** [Göztepe S.K.](https://tr.wikipedia.org/wiki/G%C3%B6ztepe_(futbol_tak%C4%B1m%C4%B1))
 - **TFF:** [tff.org](https://www.tff.org)
 
 ---
