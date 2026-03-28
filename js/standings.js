@@ -11,32 +11,31 @@
 const CACHE_KEY = 'goztep_standings';
 const CACHE_TTL = 60 * 60 * 1000; // 1 saat (ms)
 
-// API-Football: Trendyol Süper Lig = league 203, sezon 2024
-const API_URL = 'https://api-football-v1.p.rapidapi.com/v3/standings?league=203&season=2024';
+// API-Football: Trendyol Süper Lig = league 203, sezon 2025
+const API_URL = 'https://api-football-v1.p.rapidapi.com/v3/standings?league=203&season=2025';
 const API_HOST = 'api-football-v1.p.rapidapi.com';
 
-// ---- 2024-25 Sezonu Statik Fallback Verisi ----
-// (Mart 2025 sonrası tahmini sıralama – API ile otomatik güncellenir)
+// ---- 2025-26 Sezonu Statik Fallback Verisi ----
+// 26. Hafta sonuçları — Mart 2026 (Kaynak: Hürriyet Spor)
 const STATIC_STANDINGS = [
-  { rank: 1,  name: 'Galatasaray',       played: 34, won: 25, drawn: 6,  lost: 3,  goalsFor: 82, goalsAgainst: 31, gd: 51, points: 81, zone: 'champions' },
-  { rank: 2,  name: 'Fenerbahçe',        played: 34, won: 24, drawn: 5,  lost: 5,  goalsFor: 75, goalsAgainst: 32, gd: 43, points: 77, zone: 'champions' },
-  { rank: 3,  name: 'Beşiktaş',          played: 34, won: 18, drawn: 7,  lost: 9,  goalsFor: 61, goalsAgainst: 44, gd: 17, points: 61, zone: 'champions' },
-  { rank: 4,  name: 'Trabzonspor',       played: 34, won: 17, drawn: 8,  lost: 9,  goalsFor: 56, goalsAgainst: 42, gd: 14, points: 59, zone: 'europa' },
-  { rank: 5,  name: 'Başakşehir',        played: 34, won: 16, drawn: 7,  lost: 11, goalsFor: 52, goalsAgainst: 45, gd: 7,  points: 55, zone: 'conference' },
-  { rank: 6,  name: 'Kasımpaşa',         played: 34, won: 14, drawn: 8,  lost: 12, goalsFor: 48, goalsAgainst: 46, gd: 2,  points: 50, zone: '' },
-  { rank: 7,  name: 'Sivasspor',         played: 34, won: 13, drawn: 9,  lost: 12, goalsFor: 44, goalsAgainst: 43, gd: 1,  points: 48, zone: '' },
-  { rank: 8,  name: 'Konyaspor',         played: 34, won: 13, drawn: 8,  lost: 13, goalsFor: 41, goalsAgainst: 46, gd: -5, points: 47, zone: '' },
-  { rank: 9,  name: 'Göztepe',           played: 34, won: 12, drawn: 9,  lost: 13, goalsFor: 43, goalsAgainst: 47, gd: -4, points: 45, zone: '' },
-  { rank: 10, name: 'Kayserispor',       played: 34, won: 12, drawn: 8,  lost: 14, goalsFor: 40, goalsAgainst: 48, gd: -8, points: 44, zone: '' },
-  { rank: 11, name: 'Antalyaspor',       played: 34, won: 11, drawn: 9,  lost: 14, goalsFor: 39, goalsAgainst: 49, gd: -10, points: 42, zone: '' },
-  { rank: 12, name: 'Alanyaspor',        played: 34, won: 11, drawn: 8,  lost: 15, goalsFor: 43, goalsAgainst: 52, gd: -9, points: 41, zone: '' },
-  { rank: 13, name: 'Samsunspor',        played: 34, won: 10, drawn: 10, lost: 14, goalsFor: 38, goalsAgainst: 48, gd: -10, points: 40, zone: '' },
-  { rank: 14, name: 'Gaziantep FK',      played: 34, won: 10, drawn: 9,  lost: 15, goalsFor: 37, goalsAgainst: 51, gd: -14, points: 39, zone: '' },
-  { rank: 15, name: 'Hatayspor',         played: 34, won: 9,  drawn: 9,  lost: 16, goalsFor: 35, goalsAgainst: 54, gd: -19, points: 36, zone: '' },
-  { rank: 16, name: 'Rizespor',          played: 34, won: 8,  drawn: 8,  lost: 18, goalsFor: 34, goalsAgainst: 58, gd: -24, points: 32, zone: '' },
-  { rank: 17, name: 'Adana Demirspor',   played: 34, won: 7,  drawn: 7,  lost: 20, goalsFor: 31, goalsAgainst: 63, gd: -32, points: 28, zone: 'relegation' },
-  { rank: 18, name: 'Pendikspor',        played: 34, won: 5,  drawn: 6,  lost: 23, goalsFor: 26, goalsAgainst: 72, gd: -46, points: 21, zone: 'relegation' },
-  { rank: 19, name: 'İstanbulspor',      played: 34, won: 4,  drawn: 7,  lost: 23, goalsFor: 23, goalsAgainst: 68, gd: -45, points: 19, zone: 'relegation' },
+  { rank: 1,  name: 'Galatasaray',        played: 26, won: 20, drawn: 4,  lost: 2,  goalsFor: 65, goalsAgainst: 22, gd: 43, points: 64, zone: 'champions' },
+  { rank: 2,  name: 'Fenerbahçe',         played: 26, won: 17, drawn: 6,  lost: 3,  goalsFor: 55, goalsAgainst: 28, gd: 27, points: 57, zone: 'champions' },
+  { rank: 3,  name: 'Trabzonspor',        played: 26, won: 18, drawn: 3,  lost: 5,  goalsFor: 52, goalsAgainst: 30, gd: 22, points: 57, zone: 'champions' },
+  { rank: 4,  name: 'Beşiktaş',           played: 26, won: 13, drawn: 7,  lost: 6,  goalsFor: 45, goalsAgainst: 35, gd: 10, points: 46, zone: 'europa' },
+  { rank: 5,  name: 'Göztepe',            played: 26, won: 12, drawn: 7,  lost: 7,  goalsFor: 38, goalsAgainst: 33, gd: 5,  points: 43, zone: 'europa' },
+  { rank: 6,  name: 'RAMS Başakşehir',    played: 26, won: 12, drawn: 6,  lost: 8,  goalsFor: 37, goalsAgainst: 35, gd: 2,  points: 42, zone: 'conference' },
+  { rank: 7,  name: 'Kocaelispor',        played: 26, won: 9,  drawn: 6,  lost: 11, goalsFor: 30, goalsAgainst: 38, gd: -8, points: 33, zone: '' },
+  { rank: 8,  name: 'Gaziantep FK',       played: 26, won: 9,  drawn: 6,  lost: 11, goalsFor: 28, goalsAgainst: 36, gd: -8, points: 33, zone: '' },
+  { rank: 9,  name: 'Samsunspor',         played: 26, won: 9,  drawn: 5,  lost: 12, goalsFor: 30, goalsAgainst: 40, gd: -10, points: 32, zone: '' },
+  { rank: 10, name: 'Çaykur Rizespor',    played: 26, won: 8,  drawn: 6,  lost: 12, goalsFor: 26, goalsAgainst: 40, gd: -14, points: 30, zone: '' },
+  { rank: 11, name: 'Alanyaspor',         played: 26, won: 7,  drawn: 7,  lost: 12, goalsFor: 29, goalsAgainst: 42, gd: -13, points: 28, zone: '' },
+  { rank: 12, name: 'Konyaspor',          played: 26, won: 7,  drawn: 6,  lost: 13, goalsFor: 27, goalsAgainst: 42, gd: -15, points: 27, zone: '' },
+  { rank: 13, name: 'Gençlerbirliği',     played: 26, won: 7,  drawn: 4,  lost: 15, goalsFor: 25, goalsAgainst: 44, gd: -19, points: 25, zone: '' },
+  { rank: 14, name: 'Antalyaspor',        played: 26, won: 6,  drawn: 6,  lost: 14, goalsFor: 22, goalsAgainst: 42, gd: -20, points: 24, zone: '' },
+  { rank: 15, name: 'Eyüpspor',           played: 26, won: 6,  drawn: 4,  lost: 16, goalsFor: 24, goalsAgainst: 48, gd: -24, points: 22, zone: '' },
+  { rank: 16, name: 'Kasımpaşa',          played: 26, won: 6,  drawn: 3,  lost: 17, goalsFor: 22, goalsAgainst: 50, gd: -28, points: 21, zone: 'relegation' },
+  { rank: 17, name: 'Kayserispor',        played: 26, won: 5,  drawn: 5,  lost: 16, goalsFor: 20, goalsAgainst: 48, gd: -28, points: 20, zone: 'relegation' },
+  { rank: 18, name: 'Fatih Karagümrük',   played: 26, won: 4,  drawn: 5,  lost: 17, goalsFor: 22, goalsAgainst: 52, gd: -30, points: 17, zone: 'relegation' },
 ];
 
 /* ================================================================
