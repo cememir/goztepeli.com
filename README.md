@@ -98,7 +98,7 @@ goztepeli.com/
 
 ## Resmi Bağlantılar
 
-- **Göztepe Spor Kulübü:** [goztepespor.org](https://www.goztepespor.org/)
+- **Göztepe Spor Kulübü:** [goztepe.org.tr](https://www.goztepe.org.tr/)
 - **Wikipedia:** [Göztepe S.K.](https://tr.wikipedia.org/wiki/G%C3%B6ztepe_S.K.)
 - **TFF:** [tff.org](https://www.tff.org)
 
