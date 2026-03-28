@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Göztepe Spor Kulübü fan sitesi. Trendyol Süper Lig puan durumu, marşlar, tarihçe ve daha fazlası." />
+  <title>Göztepe Fan Sitesi | Trendyol Süper Lig Puan Durumu</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-emblem">GK</div>
+        <div class="logo-text">
+          <span class="club-name">Göztepe</span>
+          <span class="club-sub">Fan Sitesi</span>
+        </div>
+      </a>
+
+      <button class="hamburger" aria-label="Menüyü aç/kapat" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav aria-label="Ana menü">
+        <ul>
+          <li><a href="index.html"><i class="fa-solid fa-table-list"></i> Puan Durumu</a></li>
+          <li><a href="marslar.html"><i class="fa-solid fa-music"></i> Marşlar</a></li>
+          <li><a href="videolar.html"><i class="fa-brands fa-youtube"></i> Videolar</a></li>
+          <li><a href="tarihce.html"><i class="fa-solid fa-book-open"></i> Tarihçe</a></li>
+          <li>
+            <a href="https://www.goztepespor.org/" target="_blank" rel="noopener noreferrer"
+               style="background:rgba(255,215,0,0.15); border:1px solid rgba(255,215,0,0.4);">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Resmi Site
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-emblem">GK</div>
+      <h1>Göztepe Spor Kulübü</h1>
+      <p>İzmir'in Gururu — 1925'ten Beri Sarı Kırmızı</p>
+      <span class="hero-badge">⭐ 1925 · İzmir · Türkiye</span>
+    </section>
+
+    <!-- Resmi Site Linki -->
+    <div class="official-banner">
+      <div>
+        <p><strong>Göztepe Spor Kulübü Resmi Sitesi</strong>
+        Son haberler, bilet satışı ve kulüp bilgileri için ziyaret edin.</p>
+      </div>
+      <a href="https://www.goztepespor.org/" target="_blank" rel="noopener noreferrer" class="btn btn-yellow">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        goztepespor.org
+      </a>
+    </div>
+
+    <!-- Puan Durumu -->
+    <section class="standings-section">
+      <div class="standings-header">
+        <h2 class="section-title"><i class="fa-solid fa-ranking-star"></i> Trendyol Süper Lig Puan Durumu</h2>
+        <div class="standings-meta">
+          <span>2024–25 Sezonu</span>
+          <span id="data-badge" class="data-badge static">🟡 Yükleniyor</span>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="standings-table" aria-label="Süper Lig Puan Durumu">
+          <thead>
+            <tr>
+              <th title="Sıra">#</th>
+              <th style="text-align:left; padding-left:1rem;">Takım</th>
+              <th title="Oynanan">O</th>
+              <th title="Galibiyet">G</th>
+              <th title="Beraberlik">B</th>
+              <th title="Mağlubiyet">M</th>
+              <th title="Attığı Gol">AG</th>
+              <th title="Yediği Gol">YG</th>
+              <th title="Averaj">AV</th>
+              <th title="Puan">P</th>
+            </tr>
+          </thead>
+          <tbody id="standings-body">
+            <!-- standings.js tarafından doldurulur -->
+            <tr>
+              <td colspan="10" style="padding:2rem; text-align:center; color:#666;">
+                <div class="loading-spinner">
+                  <div class="spinner-ring"></div>
+                  <span>Yükleniyor...</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Zon Açıklaması -->
+      <div class="zone-legend">
+        <div class="zone-legend-item">
+          <div class="zone-dot" style="background:#1565c0;"></div>
+          <span>UEFA Şampiyonlar Ligi</span>
+        </div>
+        <div class="zone-legend-item">
+          <div class="zone-dot" style="background:#2e7d32;"></div>
+          <span>UEFA Avrupa Ligi</span>
+        </div>
+        <div class="zone-legend-item">
+          <div class="zone-dot" style="background:#558b2f;"></div>
+          <span>UEFA Konferans Ligi</span>
+        </div>
+        <div class="zone-legend-item">
+          <div class="zone-dot" style="background:#c62828;"></div>
+          <span>Küme Düşme</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hızlı Linkler -->
+    <section style="margin-bottom: 2.5rem;">
+      <h2 class="section-title"><i class="fa-solid fa-compass"></i> Sayfalar</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+
+        <a href="marslar.html" style="text-decoration:none;">
+          <div class="info-card" style="border-top-color: var(--goztep-red); cursor:pointer; transition: transform 0.2s, box-shadow 0.2s;"
+               onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'"
+               onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <p style="font-weight:700; font-size:1rem; margin-bottom:0.3rem;">
+              <i class="fa-solid fa-music" style="color:var(--goztep-red); margin-right:0.4rem;"></i>
+              Marşlar
+            </p>
+            <p>Göztepe'nin sevilen marşları ve söz kitabı</p>
+          </div>
+        </a>
+
+        <a href="videolar.html" style="text-decoration:none;">
+          <div class="info-card" style="border-top-color: #cc0000; cursor:pointer; transition: transform 0.2s, box-shadow 0.2s;"
+               onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'"
+               onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <p style="font-weight:700; font-size:1rem; margin-bottom:0.3rem;">
+              <i class="fa-brands fa-youtube" style="color:#cc0000; margin-right:0.4rem;"></i>
+              Videolar
+            </p>
+            <p>Maç özetleri, goller ve tribün atmosferi</p>
+          </div>
+        </a>
+
+        <a href="tarihce.html" style="text-decoration:none;">
+          <div class="info-card" style="border-top-color: var(--goztep-yellow-dark); cursor:pointer; transition: transform 0.2s, box-shadow 0.2s;"
+               onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'"
+               onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <p style="font-weight:700; font-size:1rem; margin-bottom:0.3rem;">
+              <i class="fa-solid fa-book-open" style="color:var(--goztep-yellow-dark); margin-right:0.4rem;"></i>
+              Tarihçe
+            </p>
+            <p>1925'ten günümüze Göztepe'nin hikayesi</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <div class="logo-dot">GK</div>
+            Göztepe
+          </div>
+          <p style="margin-top:0.75rem; font-size:0.83rem;">
+            Göztepe Spor Kulübü fan sitesi.<br />
+            1925'ten beri sarı kırmızı!
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Sayfalar</h4>
+          <ul>
+            <li><a href="index.html"><i class="fa-solid fa-table-list" style="margin-right:0.35rem;"></i>Puan Durumu</a></li>
+            <li><a href="marslar.html"><i class="fa-solid fa-music" style="margin-right:0.35rem;"></i>Marşlar</a></li>
+            <li><a href="videolar.html"><i class="fa-brands fa-youtube" style="margin-right:0.35rem;"></i>Videolar</a></li>
+            <li><a href="tarihce.html"><i class="fa-solid fa-book-open" style="margin-right:0.35rem;"></i>Tarihçe</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Bağlantılar</h4>
+          <ul>
+            <li>
+              <a href="https://www.goztepespor.org/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-globe" style="margin-right:0.35rem;"></i>Resmi Site
+              </a>
+            </li>
+            <li>
+              <a href="https://tr.wikipedia.org/wiki/G%C3%B6ztepe_S.K." target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-wikipedia-w" style="margin-right:0.35rem;"></i>Wikipedia
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tff.org" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-futbol" style="margin-right:0.35rem;"></i>TFF
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Göztepe Fan Sitesi · Fan yapımı, resmi değildir</span>
+        <span>
+          Resmi Site:
+          <a href="https://www.goztepespor.org/" target="_blank" rel="noopener noreferrer">goztepespor.org</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/config.js" onerror="console.log('config.js bulunamadı, statik veri kullanılacak.')"></script>
+  <script src="js/standings.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

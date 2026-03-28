@@ -1,0 +1,15 @@
+/**
+ * js/config.js.example
+ *
+ * KURULUM:
+ *  1. Bu dosyayı 'js/config.js' olarak kopyalayın
+ *  2. RapidAPI'dan ücretsiz API key alın: https://rapidapi.com/api-sports/api/api-football
+ *  3. RAPIDAPI_KEY değerini kendi key'inizle değiştirin
+ *  4. config.js .gitignore'dadır – asla commit etmeyin!
+ *
+ * NOT: config.js olmadan site yine çalışır, statik veri gösterir.
+ */
+
+const API_CONFIG = {
+  RAPIDAPI_KEY: 'BURAYA_RAPIDAPI_KEY_GIRIN'
+};
